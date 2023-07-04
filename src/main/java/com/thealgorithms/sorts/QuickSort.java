@@ -1,6 +1,7 @@
 package com.thealgorithms.sorts;
 
-import static com.thealgorithms.sorts.SortUtils.*;
+import static com.thealgorithms.sorts.SortUtils.less;
+import static com.thealgorithms.sorts.SortUtils.swap;
 
 /**
  * @author Varun Upadhyay (https://github.com/varunu28)
@@ -45,6 +46,7 @@ class QuickSort implements SortAlgorithm {
      */
     private static <T extends Comparable<T>> int randomPartition(T[] array, int left, int right) {
         int randomIndex = left + (int) (Math.random() * (right - left + 1));
+// We call swap on a random element to make the worst case (already ordered) as likely as any other runtime
         swap(array, randomIndex, right);
         return partition(array, left, right);
     }

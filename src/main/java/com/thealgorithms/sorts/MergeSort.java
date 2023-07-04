@@ -32,7 +32,7 @@ class MergeSort implements SortAlgorithm {
      */
     private static <T extends Comparable<T>> void doSort(T[] arr, int left, int right) {
         if (left < right) {
-            int mid = (left + right) >>> 1;
+            int mid = (left + right) / 2;
             doSort(arr, left, mid);
             doSort(arr, mid + 1, right);
             merge(arr, left, mid, right);
@@ -50,6 +50,7 @@ class MergeSort implements SortAlgorithm {
      */
     @SuppressWarnings("unchecked")
     private static <T extends Comparable<T>> void merge(T[] arr, int left, int mid, int right) {
+    // i and j are pointers to the subarray, as we add to the sorted array we increment either of them depending on which contains the next value.
         int i = left, j = mid + 1;
         System.arraycopy(arr, left, aux, left, right + 1 - left);
 
